@@ -1,25 +1,52 @@
 package com.kodilla.ecommercee.domain;
 
-public class CartDto {
-    private ProductDto productDto;
-    private Long orderId;
-    private Long quantity;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-    public CartDto(ProductDto productDto, Long orderId, Long quantity) {
-        this.productDto = productDto;
+public class CartDto {
+    private Long id;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private String groupId;
+    private Long orderId;
+    private List<ProductDto> productDtoList = new ArrayList<>();
+
+    public CartDto(Long id, String name, String description, BigDecimal price, String groupId, Long orderId) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.groupId = groupId;
         this.orderId = orderId;
-        this.quantity = quantity;
     }
 
-    public ProductDto getProductDto() {
-        return productDto;
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public String getGroupId() {
+        return groupId;
     }
 
     public Long getOrderId() {
         return orderId;
     }
 
-    public Long getQuantity() {
-        return quantity;
+    public List<ProductDto> getProductDtoList() {
+        return productDtoList;
     }
 }

@@ -16,9 +16,9 @@ public class CartController {
     public void createCart(@RequestBody CartDto cartDto){
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getCart")
-    public List<CartDto> getCart(){
-        return new ArrayList<>();
+    @RequestMapping(method = RequestMethod.GET, value = "getProducts")
+    public List<ProductDto> getProducts(@RequestParam List<ProductDto> productDtoList){
+        return productDtoList;
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "addProduct")
@@ -37,6 +37,6 @@ public class CartController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "createOrder")
     public CartDto createOrder(@RequestBody CartDto cartDto){
-        return new CartDto(new ProductDto(1L, "Neckles", "silver", new BigDecimal(100), "3"), 1L, 2L);
+        return new CartDto(1L, "Neckles", "silver", new BigDecimal(100), "3", 1L);
     }
 }
