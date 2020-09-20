@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/ecommercee/cart")
+@RequestMapping("/v1/ecommerce/cart")
 public class CartController {
 
     @RequestMapping(method = RequestMethod.POST, value = "createCart")
@@ -22,12 +22,11 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "addProduct")
-    public List<ProductDto> addProductToCart(){
+    public void addProductToCart(@RequestBody ProductDto productDto){
         List<ProductDto> cart = new ArrayList<>();
         cart.add(new ProductDto(1L, "Neckles", "silver", new BigDecimal(100), "3"));
         cart.add(new ProductDto(2L, "T-shirt", "cotton", new BigDecimal(50), "1"));
         cart.add(new ProductDto(3L, "Dress", "cotton", new BigDecimal(250), "1"));
-        return cart;
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")
@@ -36,7 +35,6 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "createOrder")
-    public CartDto createOrder(@RequestBody CartDto cartDto){
-        return new CartDto(1L, "Neckles", "silver", new BigDecimal(100), "3", 1L);
+    public void createOrder(@RequestBody CartDto cartDto){
     }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartDto {
-    private Long id;
+    private Long cartId;
     private String name;
     private String description;
     private BigDecimal price;
@@ -13,8 +13,8 @@ public class CartDto {
     private Long orderId;
     private List<ProductDto> productDtoList = new ArrayList<>();
 
-    public CartDto(Long id, String name, String description, BigDecimal price, String groupId, Long orderId) {
-        this.id = id;
+    public CartDto(Long cartId, String name, String description, BigDecimal price, String groupId, Long orderId) {
+        this.cartId = cartId;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -22,8 +22,8 @@ public class CartDto {
         this.orderId = orderId;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCartId() {
+        return cartId;
     }
 
     public String getName() {
