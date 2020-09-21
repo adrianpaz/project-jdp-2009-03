@@ -4,7 +4,7 @@ import com.kodilla.ecommercee.domain.user.UserDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/v1/ecommerce/user")
+@RequestMapping("/v1/ecommercee/user")
 public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "createUser")
