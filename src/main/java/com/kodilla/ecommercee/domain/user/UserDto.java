@@ -9,7 +9,7 @@ public class UserDto {
 
     private Long id;
     private String userName;
-    private boolean status;
+    private String status;
     private Long userKey;
 
 }
