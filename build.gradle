@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply {}
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
@@ -29,5 +30,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
     implementation 'mysql:mysql-connector-java'
 }
