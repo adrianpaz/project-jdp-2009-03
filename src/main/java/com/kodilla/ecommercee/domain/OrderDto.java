@@ -8,6 +8,9 @@ public class OrderDto {
     private Long id;
     private List<ProductDto> orderedProducts;
 
+    public OrderDto() {
+    }
+
     public OrderDto(Long id, List<ProductDto> orderedProducts) {
         this.id = id;
         this.orderedProducts = new ArrayList<>(orderedProducts);
