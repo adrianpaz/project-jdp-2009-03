@@ -24,5 +24,3 @@ public class OrderDto {
         return orderedProducts;
     }
 }
-
-
