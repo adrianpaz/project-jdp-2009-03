@@ -50,7 +50,9 @@ public final class Group {
         this.name = name;
     }
 
-//
+//    public void setProducts(List<Product> products) {
+//        this.products = products;
+//    }
 }
 
 
