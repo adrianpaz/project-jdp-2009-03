@@ -1,27 +1,25 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "CART")
+@Table(name = "CARTS")
 public class Cart {
     private Long id;
     /*private User user;
     private List<Item> items = new ArrayList<>();*/
 
-    public Cart() {
-    }
-
-    public Cart(Long id){
-        this.id = id;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
