@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/ecommercee/user")
 public class UserController {
 
+
     @RequestMapping(method = RequestMethod.POST, value = "createUser")
     public UserDto createUser(@RequestBody UserDto userDto) {
         return userDto;
@@ -24,4 +25,5 @@ public class UserController {
         System.out.println("UserKey for User " + userId + " is: " + userKey);
         return userKey;
     }
+
 }
