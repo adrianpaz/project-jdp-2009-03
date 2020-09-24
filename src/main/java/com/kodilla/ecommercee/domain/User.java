@@ -14,7 +14,7 @@ public class User {
     private String username;
     private int usersKey;
 //    private List<Order> orderList = new ArrayList<>();
-//    private List<Cart> cartList = new ArrayList<>();
+//    private Cart cart;
 
     public User() {
     }
@@ -51,8 +51,8 @@ public class User {
 //    }
 //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name = "USER_CART_ID")
-//    public List<Cart> getCartList() {
-//        return cartList;
+//    public User(Cart cart) {
+//        this.cart = cart;
 //    }
 
     public void setId(Long id) {
