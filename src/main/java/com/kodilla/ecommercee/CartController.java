@@ -18,16 +18,16 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getCart")
-    public List<ProductDto> getCart(@RequestParam Long cartId){
-        return new ArrayList<>();
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "addProductToCart")
-    public void addProductToCart(@RequestParam Long productId){
+    public List<ProductDto> getCart(@RequestParam Long id){
         List<ProductDto> cart = new ArrayList<>();
         cart.add(new ProductDto(1L, "Neckles", "silver", new BigDecimal(100), "3"));
         cart.add(new ProductDto(2L, "T-shirt", "cotton", new BigDecimal(50), "1"));
         cart.add(new ProductDto(3L, "Dress", "cotton", new BigDecimal(250), "1"));
+        return new ArrayList<>(cart);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "addProductToCart")
+    public void addProductToCart(@RequestParam Long productId){
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")

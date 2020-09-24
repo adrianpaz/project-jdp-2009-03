@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartDto {
-    private Long cartId;
+    private Long id;
     private List<ProductDto> productDtoList = new ArrayList<>();
 
-    public CartDto(Long cartId) {
-        this.cartId = cartId;
+    public CartDto(Long id) {
+        this.id = id;
     }
 
-    public Long getCartId() {
-        return cartId;
+    public Long getId() {
+        return id;
     }
 
     public List<ProductDto> getProductDtoList() {
