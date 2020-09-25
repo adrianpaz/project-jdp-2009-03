@@ -36,10 +36,12 @@ public class User {
     public String getUsername() {
         return username;
     }
+
     @Column(name = "USERS_KEY")
     public int getUsersKey() {
         return usersKey;
     }
+
 //    @OneToMany
 //            (targetEntity = Order.class,
 //            mappedBy = "orderList",
@@ -49,10 +51,11 @@ public class User {
 //    public List<Order> getOrderList() {
 //        return orderList;
 //    }
+
 //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name = "USER_CART_ID")
-//    public User(Cart cart) {
-//        this.cart = cart;
+//    public Cart getCart() {
+//        return cart;
 //    }
 
     public void setId(Long id) {
@@ -70,8 +73,8 @@ public class User {
 //    public void setOrderList(List<Order> orderList) {
 //        this.orderList = orderList;
 //    }
-//
-//    public void setCartList(List<Cart> cartList) {
-//        this.cartList = cartList;
+
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
 //    }
 }
