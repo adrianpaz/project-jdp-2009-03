@@ -10,7 +10,6 @@ public class Item {
     private Long id;
     private Product product;
     private Integer quantity;
-    private BigDecimal value;
 
     public Item() {
     }
@@ -19,7 +18,6 @@ public class Item {
         this.id = id;
         this.product = product;
         this.quantity = quantity;
-        this.value = product.getPrice().multiply(new BigDecimal(quantity));
     }
 
     @Id
@@ -41,11 +39,6 @@ public class Item {
         return quantity;
     }
 
-    @Column(name = "VALUE")
-    public BigDecimal getValue() {
-        return value;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -56,9 +49,5 @@ public class Item {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    public void setValue(BigDecimal value) {
-        this.value = value;
     }
 }
