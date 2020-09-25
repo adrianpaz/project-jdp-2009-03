@@ -41,12 +41,6 @@ public class EcommerceGroupTest {
         long idGroup2 = group2.getId();
         long idGroup3 = group3.getId();
         long idGroup4 = group4.getId();
-        
-        for(Group theGroup : groups) {
-            System.out.println("theGroup = " + theGroup);
-        }
-        
-
         assertEquals(groups.size(), 4);
 
         //CleanUp
@@ -123,9 +117,7 @@ public class EcommerceGroupTest {
         service.saveGroup(new Group(idGroup1,"Zegarki"));
         //Then
         Optional<Group> group = service.getGroup(idGroup1);
-        
         String groupName = group.get().getName();
-        System.out.println("groupName = " + groupName);
         assertEquals(groupName, "Zegarki");
 
         //CleanUp
