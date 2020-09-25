@@ -58,7 +58,6 @@ public final class Group {
 //    public void setProducts(List<Product> products) {
 //        this.products = products;
 //    }
-
 }
 
 
