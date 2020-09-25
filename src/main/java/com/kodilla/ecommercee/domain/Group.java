@@ -15,6 +15,11 @@ public final class Group {
     public Group() {
     }
 
+    public Group(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Group(String name) {
         this.name = name;
     }
@@ -53,6 +58,15 @@ public final class Group {
 //    public void setProducts(List<Product> products) {
 //        this.products = products;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
 
 
