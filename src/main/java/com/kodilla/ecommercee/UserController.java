@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee;
 
-import com.kodilla.ecommercee.domain.user.UserDto;
+import com.kodilla.ecommercee.domain.CartDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,7 +9,7 @@ public class UserController {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "createUser")
-    public UserDto createUser(@RequestBody UserDto userDto) {
+    public CartDto.UserDto createUser(@RequestBody CartDto.UserDto userDto) {
         return userDto;
     }
 
