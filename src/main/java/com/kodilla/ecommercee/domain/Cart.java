@@ -12,8 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "CARTS")
 public class Cart {
     private Long id;
-    /*private User user;
-    private List<Item> items = new ArrayList<>();*/
+    //private List<Item> items = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,15 +34,6 @@ public class Cart {
     )
        public List<Item> getItems() {
        return items;
-    }
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "USER_ID")
-    private User user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setItems(List<Item> items) {
