@@ -41,7 +41,7 @@ public class EcommerceGroupTest {
         long idGroup2 = group2.getId();
         long idGroup3 = group3.getId();
         long idGroup4 = group4.getId();
-        assertEquals(groups.size(), 4);
+        assertEquals(4, groups.size());
 
         //CleanUp
         service.deleteGroup(idGroup1);
@@ -89,7 +89,7 @@ public class EcommerceGroupTest {
 
         //Then
         List<Group> groups = service.getAllGropus();
-        assertEquals(groups.size(), 3);
+        assertEquals(3, groups.size());
 
         //CleanUp
         service.deleteGroup(idGroup2);
@@ -120,7 +120,7 @@ public class EcommerceGroupTest {
         //Then
         Optional<Group> group = service.getGroup(idGroup1);
         String groupName = group.get().getName();
-        assertEquals(groupName, "Zegarki");
+        assertEquals("Zegarki", groupName);
 
         //CleanUp
         service.deleteGroup(idGroup1);
@@ -140,7 +140,7 @@ public class EcommerceGroupTest {
 
         //Then
         long idGroup1 = group1.getId();
-        assertEquals(groups.size(), 1);
+        assertEquals(1, groups.size());
 
         //CleanUp
         service.deleteGroup(idGroup1);
