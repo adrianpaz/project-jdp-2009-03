@@ -67,7 +67,7 @@ public class EcommerceGroupTest {
         long idGroup1 = group1.getId();
         Product product1 = new Product("Koszula", "Bawełniana rozmiar M",
                 new BigDecimal("65.99"), group1);
-        Product product2 = new Product("Spodnie", "Jeans",
+        Product product2 = new Product("Spodnie", "Levi's",
                 new BigDecimal("65.99"), group1);
         Product product3 = new Product("Krawat", "Prążkowany",
                 new BigDecimal("65.99"), group1);
