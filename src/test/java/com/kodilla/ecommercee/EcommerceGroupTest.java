@@ -1,6 +1,8 @@
 package com.kodilla.ecommercee;
 
 import com.kodilla.ecommercee.domain.Group;
+import com.kodilla.ecommercee.domain.Product;
+import com.kodilla.ecommercee.repository.ProductRepository;
 import com.kodilla.ecommercee.service.DbGroupService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +24,9 @@ public class EcommerceGroupTest {
 
     @Autowired
     private DbGroupService service;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Test
     public void testGetGroups() {
@@ -51,20 +58,44 @@ public class EcommerceGroupTest {
     }
 
     @Test
-    public void testGetGroup() {
+    public void testGetProductsFromGroup() {
         //Given
         Group group1 = new Group("Ubrania");
 
         //When
         service.saveGroup(group1);
+        long idGroup1 = group1.getId();
+        Product product1 = new Product("Koszula", "Bawełniana rozmiar M",
+                new BigDecimal("65.99"), group1);
+        Product product2 = new Product("Spodnie", "Jeans",
+                new BigDecimal("65.99"), group1);
+        Product product3 = new Product("Krawat", "Prążkowany",
+                new BigDecimal("65.99"), group1);
+        Product product4 = new Product("Skarpetki", "Rozmiar 43",
+                new BigDecimal("65.99"), group1);
+        productRepository.save(product1);
+        long idProduct1 = product1.getId();
+        productRepository.save(product2);
+        long idProduct2 = product2.getId();
+        productRepository.save(product3);
+        long idProduct3 = product3.getId();
+        productRepository.save(product4);
+        long idProduct4 = product4.getId();
 
         //Then
-        long idGroup1 = group1.getId();
-        Optional<Group> group = service.getGroup(idGroup1);
+        List<Product> products = new ArrayList<>();
+        if (service.getGroup(idGroup1).isPresent()) {
+            Group group = service.getGroup(idGroup1).get();
+            products = group.getProducts();
+        }
 
-        assertTrue(group.isPresent());
+        assertEquals(4, products.size());
 
         //CleanUp
+        productRepository.deleteById(idProduct1);
+        productRepository.deleteById(idProduct2);
+        productRepository.deleteById(idProduct3);
+        productRepository.deleteById(idProduct4);
         service.deleteGroup(idGroup1);
     }
 
@@ -127,22 +158,5 @@ public class EcommerceGroupTest {
         service.deleteGroup(idGroup2);
         service.deleteGroup(idGroup3);
         service.deleteGroup(idGroup4);
-    }
-
-    @Test
-    public void testCreatGroup() {
-        //Given
-        Group group1 = new Group("Ubrania");
-
-        //When
-        service.saveGroup(group1);
-        List<Group> groups = service.getAllGropus();
-
-        //Then
-        long idGroup1 = group1.getId();
-        assertEquals(1, groups.size());
-
-        //CleanUp
-        service.deleteGroup(idGroup1);
     }
 }
