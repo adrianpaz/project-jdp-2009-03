@@ -83,12 +83,8 @@ public class EcommerceGroupTest {
         long idProduct4 = product4.getId();
 
         //Then
-        List<Product> products = new ArrayList<>();
-        if (service.getGroup(idGroup1).isPresent()) {
-            Group group = service.getGroup(idGroup1).get();
-            products = group.getProducts();
-        }
-
+        List<Product> products = Optional.ofNullable(service.getGroup(idGroup1).get().getProducts()).
+                orElse(new ArrayList<>());
         assertEquals(4, products.size());
 
         //CleanUp
