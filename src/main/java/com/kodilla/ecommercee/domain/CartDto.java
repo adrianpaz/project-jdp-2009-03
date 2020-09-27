@@ -1,8 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +19,4 @@ public class CartDto {
         return productDtoList;
     }
 
-    @Getter
-    @AllArgsConstructor
-    public static class UserDto {
-
-        private Long id;
-        private String userName;
-        private String status;
-        private Long userKey;
-
-    }
 }
