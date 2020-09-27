@@ -10,7 +10,7 @@ import java.util.List;
 public final class Group {
     private long id;
     private String name;
-//    private List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     public Group() {
     }
@@ -32,15 +32,15 @@ public final class Group {
         return name;
     }
 
-//    @OneToMany (
-//            targetEntity = Product.class,
-//            mappedBy = "group",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY
-//    )
-//    public List<Product> getProducts() {
-//        return products;
-//    }
+    @OneToMany (
+            targetEntity = Product.class,
+            mappedBy = "group",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Product> getProducts() {
+        return products;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -50,9 +50,9 @@ public final class Group {
         this.name = name;
     }
 
-//    public void setProducts(List<Product> products) {
-//        this.products = products;
-//    }
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }
 
 
