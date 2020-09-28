@@ -12,18 +12,9 @@ public final class Group {
     private String name;
     private List<Product> products = new ArrayList<>();
 
-    public Group() {
-    }
-
-    public Group(long id, String name, List<Product> products) {
-        this.id = id;
+    public Group(String name) {
         this.name = name;
-        this.products = products;
     }
-
-//    public Group(String name) {
-//        this.name = name;
-//    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
