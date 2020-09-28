@@ -15,9 +15,15 @@ public final class Group {
     public Group() {
     }
 
-    public Group(String name) {
+    public Group(long id, String name, List<Product> products) {
+        this.id = id;
         this.name = name;
+        this.products = products;
     }
+
+//    public Group(String name) {
+//        this.name = name;
+//    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +42,7 @@ public final class Group {
             targetEntity = Product.class,
             mappedBy = "group",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     public List<Product> getProducts() {
         return products;

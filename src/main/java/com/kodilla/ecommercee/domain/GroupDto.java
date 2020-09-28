@@ -1,19 +1,28 @@
 package com.kodilla.ecommercee.domain;
 
-public class GroupDto {
-    private Long Id;
-    private String name;
+import java.util.ArrayList;
+import java.util.List;
 
-    public GroupDto(Long id, String name) {
-        Id = id;
+public class GroupDto {
+    private Long id;
+    private String name;
+    private List<Product> products = new ArrayList<>();
+
+    public GroupDto(Long id, String name, List<Product> products) {
+        this.id = id;
         this.name = name;
+        this.products = products;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }
