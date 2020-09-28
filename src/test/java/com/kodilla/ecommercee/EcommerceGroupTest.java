@@ -58,7 +58,7 @@ public class EcommerceGroupTest {
     }
 
     @Test
-    public void testGetProductsFromGroup() {
+    public void testGetProductsFromGroupTableWhenAddingProductToProductsTable() {
         //Given
         Group group1 = new Group("Ubrania");
 
@@ -92,6 +92,35 @@ public class EcommerceGroupTest {
         productRepository.deleteById(idProduct2);
         productRepository.deleteById(idProduct3);
         productRepository.deleteById(idProduct4);
+        service.deleteGroup(idGroup1);
+    }
+
+    @Test
+    public void testGetProductsFromProductTableWhenAddingProductToGroupObject() {
+        //Given
+        Group group1 = new Group("Ubrania");
+        Product product1 = new Product("Koszula", "Bawełniana rozmiar M",
+                new BigDecimal("65.99"), group1);
+        Product product2 = new Product("Spodnie", "Levi's",
+                new BigDecimal("65.99"), group1);
+        Product product3 = new Product("Krawat", "Prążkowany",
+                new BigDecimal("65.99"), group1);
+        Product product4 = new Product("Skarpetki", "Rozmiar 43",
+                new BigDecimal("65.99"), group1);
+        group1.getProducts().add(product1);
+        group1.getProducts().add(product2);
+        group1.getProducts().add(product3);
+        group1.getProducts().add(product4);
+
+        //When
+        service.saveGroup(group1);
+        long idGroup1 = group1.getId();
+
+        //Then
+        List<Product> products = productRepository.findAll();
+        assertEquals(4, products.size());
+
+        //CleanUp
         service.deleteGroup(idGroup1);
     }
 
