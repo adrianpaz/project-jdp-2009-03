@@ -12,6 +12,9 @@ public final class Group {
     private String name;
     private List<Product> products = new ArrayList<>();
 
+    public Group() {
+    }
+
     public Group(String name) {
         this.name = name;
     }
