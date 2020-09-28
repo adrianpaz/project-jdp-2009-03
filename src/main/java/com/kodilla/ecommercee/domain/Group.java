@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "GROUPS")
 public final class Group {
-    private Long id;
+    private long id;
     private String name;
     private List<Product> products = new ArrayList<>();
 
