@@ -105,7 +105,7 @@ public class EcommerceGroupTest {
                 new BigDecimal("65.99"), group1);
         Product product3 = new Product("Krawat", "Prążkowany",
                 new BigDecimal("65.99"), group1);
-        Product product4 = new Product("Skarpetki", "Rozmiar 43",
+        Product product4 = new Product("Skarpetki", "Rozmiar 44",
                 new BigDecimal("65.99"), group1);
         group1.getProducts().add(product1);
         group1.getProducts().add(product2);
