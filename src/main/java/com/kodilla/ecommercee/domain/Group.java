@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "GROUPS")
+@Table(name = "PRODUCTS_GROUPS")
 public final class Group {
-    private long id;
+    private Long id;
     private String name;
     private List<Product> products = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public final class Group {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -39,7 +39,7 @@ public final class Group {
         return products;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
