@@ -27,7 +27,7 @@ public class DbGroupService {
         return repository.save(group);
     }
 
-    public void updateGroup(final GroupDto groupDto) {
+    public void updateGroup(final GroupDto groupDto) throws GroupNotFoundException {
         Long groupId = groupDto.getId();
         String name = groupDto.getName();
         try {
@@ -35,7 +35,7 @@ public class DbGroupService {
             group.setName(name);
             saveGroup(group);
         } catch (Exception e) {
-
+            throw new GroupNotFoundException() ;
         }
     }
 
