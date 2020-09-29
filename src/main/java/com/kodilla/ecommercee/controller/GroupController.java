@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.domain.Group;
 import com.kodilla.ecommercee.domain.GroupDto;
 import com.kodilla.ecommercee.mapper.GroupMapper;
 import com.kodilla.ecommercee.service.DbGroupService;
@@ -33,8 +34,8 @@ public class GroupController {
     }
 
     @PutMapping(value = "updateGroup")
-    public GroupDto updateGroup(@RequestBody GroupDto groupDto) {
-        return groupMapper.mapToGroupDto(service.saveGroup((groupMapper.mapToGroup(groupDto))));
+    public void updateGroup(@RequestBody GroupDto groupDto) throws GroupNotFoundException {
+        service.updateGroup(groupDto);
     }
 
     @PostMapping(value = "createGroup")
