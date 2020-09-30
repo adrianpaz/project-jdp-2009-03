@@ -125,23 +125,26 @@ public class ProductTestSuite {
         groupRepository.save(group);
         Long groupId = group.getId();
 
-        System.out.println(productRepository.findAll().size());
-
         Product product = new Product("Test product1", "Test description1", new BigDecimal("100"), group);
         group.getProducts().add(product);
         productRepository.save(product);
         Long productId = product.getId();
 
         //When
+        product.setGroup(null);
+        productRepository.save(product);
+
         productRepository.deleteById(productId);
 
         //Then
-        System.out.println(productRepository.findAll().size());
+        Assert.assertEquals(0, productRepository.findAll().size());
+        Assert.assertEquals(1, groupRepository.findAll().size());
+        Assert.assertEquals(0, groupRepository.findById(groupId).get().getProducts().size());
+
 
         //CleanUp
         try{
             groupRepository.deleteById(groupId);
-            System.out.println(productRepository.findAll().size());
         }catch (Exception e) {
             //do nothing
         }

@@ -3,8 +3,6 @@ package com.kodilla.ecommercee.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "PRODUCTS")
@@ -38,7 +36,7 @@ public class Product {
         return name;
     }
 
-    @Column(name = "DESCRIPION")
+    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
