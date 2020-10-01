@@ -4,6 +4,8 @@ import com.kodilla.ecommercee.controller.GroupNotFoundException;
 import com.kodilla.ecommercee.domain.Group;
 import com.kodilla.ecommercee.domain.GroupDto;
 import com.kodilla.ecommercee.repository.GroupRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.Optional;
 
 @Service
 public class DbGroupService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DbGroupService.class);
     @Autowired
     private GroupRepository repository;
 
@@ -35,7 +38,7 @@ public class DbGroupService {
             group.setName(name);
             saveGroup(group);
         } catch (Exception e) {
-            throw new GroupNotFoundException() ;
+            LOGGER.error("There are no group number " + groupId);
         }
     }
 

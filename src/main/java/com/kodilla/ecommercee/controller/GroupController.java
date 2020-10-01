@@ -34,8 +34,9 @@ public class GroupController {
     }
 
     @PutMapping(value = "updateGroup")
-    public void updateGroup(@RequestBody GroupDto groupDto) throws GroupNotFoundException {
+    public GroupDto updateGroup(@RequestBody GroupDto groupDto) throws GroupNotFoundException {
         service.updateGroup(groupDto);
+        return getGroup(groupDto.getId());
     }
 
     @PostMapping(value = "createGroup")
