@@ -11,7 +11,7 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
     <S extends Order> S save(S entity);
 
     @Override
-    Optional<Order> findById(Long aLong);
+    Optional<Order> findById(Long id);
 
     @Override
     Iterable<Order> findAll();

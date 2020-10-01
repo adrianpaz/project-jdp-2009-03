@@ -23,10 +23,10 @@ public class Order {
 
 //    @OneToMany(
 //            targetEntity = Item.class,
-//            mappedBy = "order",
 //            cascade = CascadeType.ALL,
 //            fetch = FetchType.LAZY
 //    )
+//    @JoinColumn(name = "orderedItems")
 //    public List<Item>orderedItems;
 
 //    @ManyToOne
