@@ -41,7 +41,7 @@ public class EcommerceGroupTest {
         service.saveGroup(group4);
 
         //When
-        List<Group> groups = service.getAllGropus();
+        List<Group> groups = service.getAllGroups();
 
         //Then
         long idGroup1 = group1.getId();
@@ -144,7 +144,7 @@ public class EcommerceGroupTest {
         service.deleteGroup(idGroup1);
 
         //Then
-        List<Group> groups = service.getAllGropus();
+        List<Group> groups = service.getAllGroups();
         assertEquals(3, groups.size());
 
         //CleanUp
