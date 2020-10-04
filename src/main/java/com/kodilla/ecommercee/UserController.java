@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee;
 
-import com.kodilla.ecommercee.domain.user.UserDto;
+import com.kodilla.ecommercee.domain.CartDto;
+import com.kodilla.ecommercee.domain.UserDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

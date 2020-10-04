@@ -1,7 +1,7 @@
-package com.kodilla.ecommercee.domain.user;
+package com.kodilla.ecommercee.domain;
 
-import lombok.Getter;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
