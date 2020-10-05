@@ -35,46 +35,22 @@ public class ProductController {
     }
 
     @GetMapping(value = "getProduct")
-    public ProductDto getProduct(@RequestParam Long productId) {
-        try {
-            return productMapper.mapToProductDto(productService.getProduct(productId).orElseThrow(ProductNotFoundException::new));
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-            return null;
-        }
+    public ProductDto getProduct(@RequestParam Long productId) throws ProductNotFoundException {
+            return productMapper.mapToProductDto(productService.getProduct(productId));
     }
 
     @DeleteMapping(value = "deleteProduct")
-    public void deleteProduct(@RequestParam Long productId) {
-        try {
-            Product productToDelete = productService.getProduct(productId).orElseThrow(ProductNotFoundException::new);
-            Group group = productToDelete.getGroup();
-            group.getProducts().remove(productToDelete);
-            groupService.saveGroup(group);
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-        }
+    public void deleteProduct(@RequestParam Long productId) throws ProductNotFoundException {
+        productService.deleteProduct(productId);
     }
 
     @PutMapping(value = "updateProduct")
-    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
-        try {
-            productService.getProduct(productDto.getId()).orElseThrow(ProductNotFoundException::new);
-            Group group = groupService.getGroup(Long.parseLong(productDto.getGroupId())).orElseThrow(GroupNotFoundException::new);
-            return productMapper.mapToProductDto(productService.saveProduct(productMapper.mapToProduct(productDto, group)));
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-            return null;
-        }
+    public ProductDto updateProduct(@RequestBody ProductDto productDto) throws ProductNotFoundException, GroupNotFoundException {
+        return productMapper.mapToProductDto(productService.updateProduct(productDto));
     }
 
     @PostMapping(value = "createProduct")
-    public void createProduct(@RequestBody ProductDto productDto) {
-        try {
-            Group group = groupService.getGroup(Long.parseLong(productDto.getGroupId())).orElseThrow(GroupNotFoundException::new);
-            productService.saveProduct(productMapper.mapToProduct(productDto, group));
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-        }
+    public void createProduct(@RequestBody ProductDto productDto) throws GroupNotFoundException {
+        productService.createProduct(productDto);
     }
 }
