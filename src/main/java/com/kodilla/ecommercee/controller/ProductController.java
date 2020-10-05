@@ -16,17 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/ecommerce/product")
 public class ProductController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
     private final DbProductService productService;
     private final ProductMapper productMapper;
-    private final DbGroupService groupService;
 
     @Autowired
-    public ProductController(DbProductService productService, ProductMapper productMapper, DbGroupService groupService) {
+    public ProductController(DbProductService productService, ProductMapper productMapper) {
         this.productService = productService;
         this.productMapper = productMapper;
-        this.groupService = groupService;
-
     }
 
     @GetMapping(value = "getProducts")
