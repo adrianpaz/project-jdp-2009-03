@@ -1,8 +1,11 @@
 package com.kodilla.ecommercee.domain;
+
+import lombok.AllArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@AllArgsConstructor
 @Entity
 @Table(name = "PRODUCTS")
 public class Product {

@@ -32,11 +32,12 @@ public final class Group {
         return name;
     }
 
-    @OneToMany (
+    @OneToMany(
             targetEntity = Product.class,
             mappedBy = "group",
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
     )
     public List<Product> getProducts() {
         return products;
