@@ -102,22 +102,4 @@ public class CartTestSuite {
         cartRepository.deleteById(cart2Id);
         cartRepository.deleteById(cart3Id);
     }
-
-    @Test
-    public void testCreateCart(){
-        //Given
-        List<Item> itemsFromCart = new ArrayList<>();
-        Cart cart1 = new Cart(itemsFromCart);
-
-        //When
-        cartRepository.save(cart1);
-        Long cart1Id = cart1.getId();
-
-        //Then
-        Assert.assertEquals(1,cartRepository.findAll().size());
-
-        //CleanUp
-        cartRepository.deleteById(cart1Id);
-    }
-
 }

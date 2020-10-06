@@ -35,7 +35,7 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "createOrder")
-    public OrderDto createOrder(@RequestBody CartDto cartDto){
+    public OrderDto createOrder(@RequestParam Long cartId){
         return new OrderDto();
     }
 }
