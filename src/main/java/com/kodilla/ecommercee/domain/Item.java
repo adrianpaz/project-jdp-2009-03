@@ -1,8 +1,6 @@
 package com.kodilla.ecommercee.domain;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ITEMS")
@@ -10,14 +8,16 @@ public class Item {
     private Long id;
     private Product product;
     private Integer quantity;
+    private Cart cart;
 
     public Item() {
     }
 
-    public Item(Long id, Product product, Integer quantity) {
-        this.id = id;
+    public Item(Product product, Integer quantity, Cart cart) {
         this.product = product;
         this.quantity = quantity;
+        this.cart = cart;
+
     }
 
     @Id
@@ -37,6 +37,16 @@ public class Item {
     @Column(name = "QUANTITY")
     public Integer getQuantity() {
         return quantity;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "CART_ID")
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public void setId(Long id) {
