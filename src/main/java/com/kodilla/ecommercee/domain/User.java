@@ -2,7 +2,6 @@ package com.kodilla.ecommercee.domain;
 
 
 import javax.persistence.*;
-import javax.persistence.criteria.Order;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +12,17 @@ public class User {
     private Long Id;
     private String username;
     private int usersKey;
-//    private List<Order> orderList = new ArrayList<>();
-//    private Cart cart;
+    private List<Order> orderList = new ArrayList<>();
+    private Cart cart;
 
     public User() {
     }
 
-    public User(String username, int usersKey) {
+    public User(String username, int usersKey, List<Order> orderList, Cart cart) {
         this.username = username;
         this.usersKey = usersKey;
+        this.orderList = orderList;
+        this.cart = cart;
     }
 
     @Id
@@ -42,21 +43,21 @@ public class User {
         return usersKey;
     }
 
-//    @OneToMany
-//            (targetEntity = Order.class,
-//            mappedBy = "orderList",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER
-//            )
-//    public List<Order> getOrderList() {
-//        return orderList;
-//    }
+    @OneToMany
+            (targetEntity = Order.class,
+            mappedBy = "orderList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+            )
+    public List<Order> getOrderList() {
+        return orderList;
+    }
 
-//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "USER_CART_ID")
-//    public Cart getCart() {
-//        return cart;
-//    }
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "USER_CART_ID")
+    public Cart getCart() {
+        return cart;
+    }
 
     public void setId(Long id) {
         Id = id;
@@ -70,11 +71,11 @@ public class User {
         this.usersKey = usersKey;
     }
 
-//    public void setOrderList(List<Order> orderList) {
-//        this.orderList = orderList;
-//    }
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
-//    public void setCart(Cart cart) {
-//        this.cart = cart;
-//    }
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }

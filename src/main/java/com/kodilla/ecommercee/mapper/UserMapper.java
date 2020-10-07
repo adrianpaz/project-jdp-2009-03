@@ -14,9 +14,9 @@ public class UserMapper {
     @Autowired
     private DbUserService service;
 
-    public User mapToUser(final UserDto userDto) throws UserNotFoundException {
-        User user = service.getAllUsers().get(Long.parseLong(userDto.getId()));.orElseThrow(UserNotFoundException::new);
-        return new User(UserDto.);
+    public User mapToUser(final UserDto userDto) {
+
+        return new User(userDto.getUserName(),userDto.getUserKey(),userDto.);
     }
 
     public ProductDto mapToProductDto(final Product product) {
