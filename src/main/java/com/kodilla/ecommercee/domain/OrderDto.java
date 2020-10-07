@@ -1,23 +1,28 @@
 package com.kodilla.ecommercee.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDto {
 
     private Long id;
+    private Long userId;
     private List<ProductDto> orderedProducts;
 
     public OrderDto() {
     }
 
-    public OrderDto(Long id, List<ProductDto> orderedProducts) {
+    public OrderDto(Long id, Long userId, List<ProductDto> orderedProducts) {
         this.id = id;
-        this.orderedProducts = new ArrayList<>(orderedProducts);
+        this.userId = userId;
+        this.orderedProducts = orderedProducts;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Long getUserId() {
+        return userId;
     }
 
     public List<ProductDto> getOrderedProducts() {
