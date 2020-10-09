@@ -11,16 +11,18 @@ public class User {
 
     private Long Id;
     private String username;
-    private int usersKey;
+    private Long userKey;
+    private String status;
     private List<Order> orderList = new ArrayList<>();
     private Cart cart;
 
     public User() {
     }
 
-    public User(String username, int usersKey, List<Order> orderList, Cart cart) {
+    public User(String username, Long userKey, String status, List<Order> orderList, Cart cart) {
         this.username = username;
-        this.usersKey = usersKey;
+        this.userKey = userKey;
+        this.status = status;
         this.orderList = orderList;
         this.cart = cart;
     }
@@ -38,9 +40,15 @@ public class User {
         return username;
     }
 
+
     @Column(name = "USERS_KEY")
-    public int getUsersKey() {
-        return usersKey;
+    public Long getUserKey() {
+        return userKey;
+    }
+
+    @Column(name = "USERS_STATUS")
+    public String getStatus() {
+        return status;
     }
 
     @OneToMany
@@ -67,8 +75,12 @@ public class User {
         this.username = username;
     }
 
-    public void setUsersKey(int usersKey) {
-        this.usersKey = usersKey;
+    public void setUserKey(Long usersKey) {
+        this.userKey = usersKey;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setOrderList(List<Order> orderList) {

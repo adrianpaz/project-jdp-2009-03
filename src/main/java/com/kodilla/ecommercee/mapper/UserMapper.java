@@ -1,7 +1,5 @@
 package com.kodilla.ecommercee.mapper;
 
-import com.kodilla.ecommercee.controller.GroupNotFoundException;
-import com.kodilla.ecommercee.controller.UserNotFoundException;
 import com.kodilla.ecommercee.domain.*;
 import com.kodilla.ecommercee.service.DbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +13,21 @@ public class UserMapper {
     private DbUserService service;
 
     public User mapToUser(final UserDto userDto) {
-
-        return new User(userDto.getUserName(),userDto.getUserKey(),userDto.);
+        return new User(
+                userDto.getUserName(),
+                userDto.getUserKey(),
+                userDto.getStatus(),
+                service.findById(userDto.getId()).get().getOrderList(),
+                service.findById(userDto.getId()).get().getCart());
     }
 
-    public ProductDto mapToProductDto(final Product product) {
-        return new ProductDto(
-                product.getId(),
-                product.getName(),
-                product.getDescription(),
-                product.getPrice(),
-                product.getGroup().getId().toString());
+    public UserDto mapToUserDto(final User user) {
+        return new UserDto(user.getId(), user.getUsername(), user.getStatus(), user.getUserKey());
     }
 
-    public List<ProductDto> mapToProductDtoList(final List<Product> productList) {
-        return productList.stream()
-                .map(p -> mapToProductDto(p))
+    public List<User> mapToUserDtoList(final List<User> userList) {
+        return userList.stream()
+                .map(p -> mapToUserDto(p))
                 .collect(Collectors.toList());
     }
 }
