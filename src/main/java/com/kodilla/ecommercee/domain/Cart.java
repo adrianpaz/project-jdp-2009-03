@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "CARTS")
 public class Cart {
