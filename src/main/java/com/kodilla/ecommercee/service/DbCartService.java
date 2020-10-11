@@ -45,4 +45,8 @@ public class DbCartService {
     public Order createOrder(final Long cartId) {
         return orderRepository.save(new Order());
     }
+
+    public List<Cart> getAllCards() {
+        return cartRepository.findAll();
+    }
 }

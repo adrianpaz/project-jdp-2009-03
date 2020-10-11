@@ -2,7 +2,9 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.*;
 import com.kodilla.ecommercee.mapper.CartMapper;
+import com.kodilla.ecommercee.mapper.ItemMapper;
 import com.kodilla.ecommercee.service.DbCartService;
+import com.kodilla.ecommercee.service.DbItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,24 +18,35 @@ public class CartController {
     private CartMapper cartMapper;
     @Autowired
     private DbCartService dbCartService;
+    @Autowired
+    private ItemMapper itemMapper;
+    @Autowired
+    private DbItemService dbItemService;
 
     @PostMapping(value = "createCart")
-    public void createCart(@RequestBody CartDto cartDto){
-        dbCartService.saveCart(cartMapper.mapToCart(cartDto));
+    public void createCart(){
+        dbCartService.saveCart(new Cart());
     }
 
     @GetMapping(value = "getCart")
-    public List<Cart> getCart(@RequestParam Long id){
+    public List<Cart> getCart(@RequestParam Long id) {
         return new ArrayList<>();
     }
 
-    @PutMapping(value = "addProductToCart")
-    public void addProductToCart(@RequestParam Long productId){
+    @GetMapping(value = "getCarts")
+    public List<CartDto> getCarts() {
+        return cartMapper.mapToCartDtoList(dbCartService.getAllCards());
+    }
+
+    @PostMapping(value = "addItemToCart")
+    public void addItemToCart(@RequestBody ItemDto itemDto) throws ProductNotFoundException,
+            CartNotFoundException, ItemNotFoundException {
+        dbItemService.createItem(itemDto);
     }
 
     @DeleteMapping(value = "deleteProduct")
-    public void deleteProduct(@RequestParam Long productId){
-        dbCartService.deleteCart(productId);
+    public void deleteProduct(@RequestParam Long id) throws ItemNotFoundException{
+        dbItemService.deleteItem(id);
     }
 
     @PutMapping(value = "createOrder")
