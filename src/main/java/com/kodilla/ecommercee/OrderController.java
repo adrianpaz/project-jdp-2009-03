@@ -24,7 +24,7 @@ public class OrderController {
         List<ProductDto> orderedProducts = new ArrayList<>();
         orderedProducts.add(new ProductDto(1L, "test product", "test description", new BigDecimal("27.99"), "1"));
         orderedProducts.add(new ProductDto(2L, "test product 2", "test description", new BigDecimal("39.99"), "2"));
-        OrderDto orderDto = new OrderDto(1L, orderedProducts);
+        OrderDto orderDto = new OrderDto(1L, 1L, orderedProducts);
         return orderDto;
     }
 
@@ -38,7 +38,7 @@ public class OrderController {
         List<ProductDto> orderedProducts = new ArrayList<>();
         orderDto.getOrderedProducts().add(new ProductDto(1L, "test product 3", "test description", new BigDecimal("15.99"), "3"));
         orderDto.getOrderedProducts().add(new ProductDto(2L, "test product 4", "test description", new BigDecimal("69.99"), "4"));
-        OrderDto updatedOrderDto = new OrderDto(1L, orderedProducts);
+        OrderDto updatedOrderDto = new OrderDto(1L, 1L, orderedProducts);
         return updatedOrderDto;
     }
 
