@@ -44,8 +44,8 @@ public class CartController {
         dbItemService.createItem(itemDto);
     }
 
-    @DeleteMapping(value = "deleteProduct")
-    public void deleteProduct(@RequestParam Long id) throws ItemNotFoundException{
+    @DeleteMapping(value = "deleteItem")
+    public void deleteItem (@RequestParam Long id) throws ItemNotFoundException{
         dbItemService.deleteItem(id);
     }
 
