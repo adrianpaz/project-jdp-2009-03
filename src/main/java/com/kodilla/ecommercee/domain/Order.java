@@ -22,7 +22,6 @@ public class Order {
     public Order() {
     }
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
@@ -46,6 +45,10 @@ public class Order {
     @JoinColumn(name = "userId")
     public Long getUserId() {
         return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @ManyToOne
