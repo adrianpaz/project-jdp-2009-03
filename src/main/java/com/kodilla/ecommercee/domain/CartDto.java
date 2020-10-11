@@ -6,9 +6,11 @@ import java.util.List;
 public class CartDto {
     private Long id;
     private List<ProductDto> productDtoList = new ArrayList<>();
+    private List<ItemDto> itemsDtoList = new ArrayList<>();
 
-    public CartDto(Long id) {
+    public CartDto(Long id, List<ItemDto> itemsDtoList) {
         this.id = id;
+        this.itemsDtoList = itemsDtoList;
     }
 
     public Long getId() {
@@ -19,4 +21,7 @@ public class CartDto {
         return productDtoList;
     }
 
+    public List<ItemDto> getItemsDtoList() {
+        return itemsDtoList;
+    }
 }
