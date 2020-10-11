@@ -33,7 +33,7 @@ public class Order {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    @JoinColumn(name = "orderedItems")
+    @JoinColumn(name = "ORDERED_ITEMS")
     public List<Item> getOrderedItems() {
         return orderedItems;
     }

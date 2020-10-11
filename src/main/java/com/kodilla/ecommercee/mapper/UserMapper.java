@@ -3,10 +3,12 @@ package com.kodilla.ecommercee.mapper;
 import com.kodilla.ecommercee.domain.*;
 import com.kodilla.ecommercee.service.DbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class UserMapper {
 
     @Autowired
@@ -25,7 +27,7 @@ public class UserMapper {
         return new UserDto(user.getId(), user.getUsername(), user.getStatus(), user.getUserKey());
     }
 
-    public List<User> mapToUserDtoList(final List<User> userList) {
+    public List<UserDto> mapToUserDtoList(final List<User> userList) {
         return userList.stream()
                 .map(p -> mapToUserDto(p))
                 .collect(Collectors.toList());

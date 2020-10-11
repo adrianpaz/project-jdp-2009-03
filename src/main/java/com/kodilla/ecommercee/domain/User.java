@@ -13,7 +13,7 @@ public class User {
     private String username;
     private Long userKey;
     private String status;
-    private List<Order> orderList = new ArrayList<>();
+    private List<Order> orderList;
     private Cart cart;
 
     public User() {
@@ -53,7 +53,7 @@ public class User {
 
     @OneToMany
             (targetEntity = Order.class,
-            mappedBy = "orderList",
+            mappedBy = "id",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
             )
